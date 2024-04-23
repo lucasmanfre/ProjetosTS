@@ -6,13 +6,16 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace ProjetoTs.Migrations
 {
     /// <inheritdoc />
-    public partial class v1 : Migration
+    public partial class VersaoInicial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.AlterDatabase()
+                .Annotation("MySQL:Charset", "utf8mb4");
+
             migrationBuilder.CreateTable(
-                name: "Avaliacaos",
+                name: "Avaliacoes",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -28,7 +31,7 @@ namespace ProjetoTs.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Avaliacaos", x => x.Id);
+                    table.PrimaryKey("PK_Avaliacoes", x => x.Id);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
@@ -54,7 +57,7 @@ namespace ProjetoTs.Migrations
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Nutris",
+                name: "Nutricionistas",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -68,7 +71,7 @@ namespace ProjetoTs.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Nutris", x => x.Id);
+                    table.PrimaryKey("PK_Nutricionistas", x => x.Id);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
@@ -159,13 +162,13 @@ namespace ProjetoTs.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Avaliacaos");
+                name: "Avaliacoes");
 
             migrationBuilder.DropTable(
                 name: "Dietas");
 
             migrationBuilder.DropTable(
-                name: "Nutris");
+                name: "Nutricionistas");
 
             migrationBuilder.DropTable(
                 name: "Personais");

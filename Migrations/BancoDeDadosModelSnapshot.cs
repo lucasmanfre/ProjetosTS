@@ -113,7 +113,7 @@ namespace ProjetoTs.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Nutris");
+                    b.ToTable("Nutricionistas");
                 });
 
             modelBuilder.Entity("Personal", b =>

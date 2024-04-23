@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ProjetoTs.Migrations
 {
     [DbContext(typeof(BancoDeDados))]
-    [Migration("20240410154224_v2")]
-    partial class v2
+    [Migration("20240423143730_VersaoInicial")]
+    partial class VersaoInicial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -116,7 +116,7 @@ namespace ProjetoTs.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Nutris");
+                    b.ToTable("Nutricionistas");
                 });
 
             modelBuilder.Entity("Personal", b =>
