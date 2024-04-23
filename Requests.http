@@ -1,0 +1,11 @@
+### requisição GET
+GET http://localhost:5248/Usuario/1
+
+### Requisição POST
+POST http://localhost:5248/Usuario 
+Content-Type: application/json
+
+{
+    "Nome":"Guilherme",
+    "Idade": 22
+}
