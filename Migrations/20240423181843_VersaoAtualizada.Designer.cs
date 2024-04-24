@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ProjetoTs.Migrations
 {
     [DbContext(typeof(BancoDeDados))]
-    [Migration("20240423143730_VersaoInicial")]
-    partial class VersaoInicial
+    [Migration("20240423181843_VersaoAtualizada")]
+    partial class VersaoAtualizada
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

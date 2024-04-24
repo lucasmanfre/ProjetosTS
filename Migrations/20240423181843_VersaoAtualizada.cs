@@ -6,7 +6,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace ProjetoTs.Migrations
 {
     /// <inheritdoc />
-    public partial class VersaoInicial : Migration
+    public partial class VersaoAtualizada : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

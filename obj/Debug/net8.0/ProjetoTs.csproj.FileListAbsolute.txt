@@ -246,3 +246,9 @@ C:\_ws\ProjetosTS\obj\Debug\net8.0\scopedcss\bundle\ProjetoTs.styles.css
 C:\_ws\ProjetosTS\obj\Debug\net8.0\ProjetoTs.csproj.CopyComplete
 C:\_ws\ProjetosTS\obj\Debug\net8.0\ProjetoTs.genruntimeconfig.cache
 C:\_ws\ProjetosTS\obj\Debug\net8.0\ref\ProjetoTs.dll
+C:\_ws\ProjetoTs\obj\Debug\net8.0\ProjetoTs.MvcApplicationPartsAssemblyInfo.cs
+C:\_ws\ProjetoTs\obj\Debug\net8.0\ProjetoTs.sourcelink.json
+C:\_ws\ProjetoTs\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\_ws\ProjetoTs\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\_ws\ProjetoTs\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\_ws\ProjetoTs\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll

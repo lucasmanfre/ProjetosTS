@@ -17,9 +17,13 @@ app.UseSwaggerUI();
 
 //  http://localhost:xxxx/swagger/index.html
 
-app.MapGet("/", () => "Nutricao API");
+app.MapGet("/", () => "App de Nutricao com API");
 
 //APIs
 app.MapAvaliacoesFisicaApi();
+app.MapDietasApi();
+app.MapNutrionistasApi();
+app.MapPersonaisApi();
+app.MapPlanosAlimentaresApi();
 
 app.Run();
