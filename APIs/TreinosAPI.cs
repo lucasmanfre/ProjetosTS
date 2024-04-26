@@ -34,11 +34,11 @@ public static class TreinosApi{
             Treino.Id = treinoAlterada.Id;
             Treino.Nome = treinoAlterada.Nome;
             Treino.Descricao = treinoAlterada.Descricao;
-            Treino.Tipo = treinoAlterada.Tipo;
-            Treino.Objetivo = treinoAlterada.Objetivo;
-            Treino.Refeicoes = treinoAlterada.Refeicoes;
-            Treino.Lanches = treinoAlterada.Lanches;
-            Treino.Receitas = treinoAlterada.Receitas;
+            Treino.Exercicios = treinoAlterada.Exercicios;
+            Treino.Repeticoes = treinoAlterada.Repeticoes;
+            Treino.Series = treinoAlterada.Series;
+            Treino.Intensidade = treinoAlterada.Intensidade;
+            Treino.HistoricoTreinos = treinoAlterada.HistoricoTreinos;
 
             //update....
             await db.SaveChangesAsync();

@@ -25,5 +25,7 @@ app.MapDietasApi();
 app.MapNutrionistasApi();
 app.MapPersonaisApi();
 app.MapPlanosAlimentaresApi();
+app.MapTreinosApi();
+app.MapUsuariosApi();
 
 app.Run();
