@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-public static class NutricionistasApi{
+public static class DietasApi{
 
     public static void MapDietasApi(this WebApplication app){
 
