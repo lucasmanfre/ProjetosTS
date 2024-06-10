@@ -18,9 +18,12 @@ public class Usuario
 
     public string? ObjetivoSaude { get; set;}
 
-    public string? PlanoAlimentar { get; set;}
+    // Relacionamento 1 para muitos
+    public List<PlanoAlimentar>? PlanosAlimentares { get; set;}
 
-    public string? PlanoTreino { get; set;}
+    // Relacionamento 1 para muitos
+    public List<Treino>? Treinos { get; set;}
 
-    
+    // Relacionamento 1 para muitos
+    public List<Personal>? Personais { get; set; }
 }

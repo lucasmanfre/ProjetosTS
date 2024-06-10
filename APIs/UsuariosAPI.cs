@@ -1,3 +1,4 @@
+using System.Reflection.Metadata.Ecma335;
 using Microsoft.EntityFrameworkCore;
 
 public static class UsuariosApi{
@@ -7,8 +8,9 @@ public static class UsuariosApi{
         var group = app.MapGroup("/Usuarios");
 
         group.MapGet("/", async (BancoDeDados db) =>
-
-            await db.Usuarios.ToListAsync()
+        {
+            await db.Usuarios.ToListAsync();
+        }
 
         );
 
@@ -40,8 +42,8 @@ public static class UsuariosApi{
             Usuario.NivelAtividadeFisica = usuarioAlterada.NivelAtividadeFisica;
             Usuario.HistoricoMedico = usuarioAlterada.HistoricoMedico;
             Usuario.ObjetivoSaude = usuarioAlterada.ObjetivoSaude;
-            Usuario.PlanoAlimentar = usuarioAlterada.PlanoAlimentar;
-            Usuario.PlanoTreino = usuarioAlterada.PlanoTreino;
+            //Usuario.PlanoAlimentar = usuarioAlterada.PlanoAlimentar;
+            //Usuario.PlanoTreino = usuarioAlterada.PlanoTreino;
 
             //update....
             await db.SaveChangesAsync();

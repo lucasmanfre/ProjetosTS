@@ -76,6 +76,27 @@ namespace ProjetoTs.Migrations
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "Usuarios",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    Nome = table.Column<string>(type: "longtext", nullable: true),
+                    Idade = table.Column<int>(type: "int", nullable: false),
+                    Email = table.Column<string>(type: "longtext", nullable: true),
+                    Peso = table.Column<float>(type: "float", nullable: false),
+                    Sexo = table.Column<string>(type: "varchar(1)", nullable: true),
+                    NivelAtividadeFisica = table.Column<string>(type: "longtext", nullable: true),
+                    HistoricoMedico = table.Column<string>(type: "longtext", nullable: true),
+                    ObjetivoSaude = table.Column<string>(type: "longtext", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Usuarios", x => x.Id);
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "Personais",
                 columns: table => new
                 {
@@ -86,11 +107,16 @@ namespace ProjetoTs.Migrations
                     Especialidade = table.Column<string>(type: "longtext", nullable: true),
                     Cref = table.Column<string>(type: "longtext", nullable: true),
                     Alunos = table.Column<string>(type: "longtext", nullable: true),
-                    Treinos = table.Column<string>(type: "longtext", nullable: true)
+                    UsuarioId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Personais", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Personais_Usuarios_UsuarioId",
+                        column: x => x.UsuarioId,
+                        principalTable: "Usuarios",
+                        principalColumn: "Id");
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
@@ -106,11 +132,17 @@ namespace ProjetoTs.Migrations
                     Objetivo = table.Column<string>(type: "longtext", nullable: true),
                     Refeicoes = table.Column<string>(type: "longtext", nullable: true),
                     Lanches = table.Column<string>(type: "longtext", nullable: true),
-                    Receitas = table.Column<string>(type: "longtext", nullable: true)
+                    Receitas = table.Column<string>(type: "longtext", nullable: true),
+                    UsuarioId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Planos", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Planos_Usuarios_UsuarioId",
+                        column: x => x.UsuarioId,
+                        principalTable: "Usuarios",
+                        principalColumn: "Id");
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
@@ -126,36 +158,64 @@ namespace ProjetoTs.Migrations
                     Repeticoes = table.Column<int>(type: "int", nullable: false),
                     Series = table.Column<int>(type: "int", nullable: false),
                     Intensidade = table.Column<string>(type: "longtext", nullable: true),
-                    HistoricoTreinos = table.Column<string>(type: "longtext", nullable: true)
+                    HistoricoTreinos = table.Column<string>(type: "longtext", nullable: true),
+                    UsuarioId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Treinos", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Treinos_Usuarios_UsuarioId",
+                        column: x => x.UsuarioId,
+                        principalTable: "Usuarios",
+                        principalColumn: "Id");
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Usuarios",
+                name: "PersonalTreino",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    Nome = table.Column<string>(type: "longtext", nullable: true),
-                    Idade = table.Column<int>(type: "int", nullable: false),
-                    Email = table.Column<string>(type: "longtext", nullable: true),
-                    Peso = table.Column<float>(type: "float", nullable: false),
-                    Sexo = table.Column<string>(type: "varchar(1)", nullable: true),
-                    NivelAtividadeFisica = table.Column<string>(type: "longtext", nullable: true),
-                    HistoricoMedico = table.Column<string>(type: "longtext", nullable: true),
-                    ObjetivoSaude = table.Column<string>(type: "longtext", nullable: true),
-                    PlanoAlimentar = table.Column<string>(type: "longtext", nullable: true),
-                    PlanoTreino = table.Column<string>(type: "longtext", nullable: true)
+                    PersonaisId = table.Column<int>(type: "int", nullable: false),
+                    TreinosId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Usuarios", x => x.Id);
+                    table.PrimaryKey("PK_PersonalTreino", x => new { x.PersonaisId, x.TreinosId });
+                    table.ForeignKey(
+                        name: "FK_PersonalTreino_Personais_PersonaisId",
+                        column: x => x.PersonaisId,
+                        principalTable: "Personais",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PersonalTreino_Treinos_TreinosId",
+                        column: x => x.TreinosId,
+                        principalTable: "Treinos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Personais_UsuarioId",
+                table: "Personais",
+                column: "UsuarioId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PersonalTreino_TreinosId",
+                table: "PersonalTreino",
+                column: "TreinosId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Planos_UsuarioId",
+                table: "Planos",
+                column: "UsuarioId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Treinos_UsuarioId",
+                table: "Treinos",
+                column: "UsuarioId");
         }
 
         /// <inheritdoc />
@@ -171,10 +231,13 @@ namespace ProjetoTs.Migrations
                 name: "Nutricionistas");
 
             migrationBuilder.DropTable(
-                name: "Personais");
+                name: "PersonalTreino");
 
             migrationBuilder.DropTable(
                 name: "Planos");
+
+            migrationBuilder.DropTable(
+                name: "Personais");
 
             migrationBuilder.DropTable(
                 name: "Treinos");

@@ -15,4 +15,10 @@ public class Treino
     public string? Intensidade { get; set;}
 
     public string? HistoricoTreinos { get; set;}
+
+    //Relacionamento muitos para 1
+    public Usuario? Usuario { get; set; }
+    
+    //Relacionamento muitos para muitos
+    public List<Personal>? Personais { get; set; }
 }
