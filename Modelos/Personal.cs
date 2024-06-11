@@ -13,8 +13,8 @@ public class Personal
     public string? Alunos { get; set;}
 
     //Relacionamento muitos para muitos
-    public List<Treino>? Treinos { get; set;}
+    //public List<Treino>? Treinos { get; set;}
 
     //Relacionamento muitos para 1
-    public Usuario? Usuario { get; set; }
+    //public Usuario? Usuario { get; set; }
 }

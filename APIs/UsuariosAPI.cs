@@ -9,7 +9,7 @@ public static class UsuariosApi{
 
         group.MapGet("/", async (BancoDeDados db) =>
         {
-            await db.Usuarios.ToListAsync();
+           return await db.Usuarios.ToListAsync();
         }
 
         );

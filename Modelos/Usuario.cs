@@ -19,11 +19,11 @@ public class Usuario
     public string? ObjetivoSaude { get; set;}
 
     // Relacionamento 1 para muitos
-    public List<PlanoAlimentar>? PlanosAlimentares { get; set;}
+    //public List<PlanoAlimentar>? PlanosAlimentares { get; set;}
 
     // Relacionamento 1 para muitos
-    public List<Treino>? Treinos { get; set;}
+    //public List<Treino>? Treinos { get; set;}
 
     // Relacionamento 1 para muitos
-    public List<Personal>? Personais { get; set; }
+    //public List<Personal>? Personais { get; set; }
 }

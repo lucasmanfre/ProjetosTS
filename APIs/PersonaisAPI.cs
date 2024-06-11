@@ -7,9 +7,9 @@ public static class PersonaisApi{
         var group = app.MapGroup("/Personais");
 
         group.MapGet("/", async (BancoDeDados db) =>
-
-            await db.Personais.ToListAsync()
-
+            {    
+            return await db.Personais.ToListAsync();
+            }
         );
 
         group.MapPost("/", async (Personal personal, BancoDeDados db) =>
@@ -37,7 +37,7 @@ public static class PersonaisApi{
             Personal.Especialidade = personalAlterada.Especialidade;
             Personal.Cref = personalAlterada.Cref;
             Personal.Alunos = personalAlterada.Alunos;
-            Personal.Treinos = personalAlterada.Treinos;
+            //Personal.Treinos = personalAlterada.Treinos;
 
             //update....
             await db.SaveChangesAsync();

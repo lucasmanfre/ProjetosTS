@@ -7,6 +7,9 @@ builder.Services.AddSwaggerGen();
 //Configuração banco MySQL
 builder.Services.AddDbContext<BancoDeDados>();
 
+//Configuração CORs
+builder.Services.AddCors();
+
 var app = builder.Build();
 
 //Configuração Swagger no app
@@ -16,6 +19,14 @@ app.UseSwaggerUI();
 //  http://localhost:xxxx/swagger/index.html
 
 app.MapGet("/", () => "App de Nutricao com API");
+
+//Configuração CORs
+app.UseCors(builder => builder
+    .AllowAnyOrigin()
+    .AllowAnyHeader()
+    .AllowAnyMethod()
+);
+
 
 //APIs
 app.MapAvaliacoesFisicaApi();
