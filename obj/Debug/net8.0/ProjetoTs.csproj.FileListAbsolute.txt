@@ -251,4 +251,4 @@ C:\_ws\ProjetoTs\bin\Debug\net8.0\Microsoft.OpenApi.dll
 C:\_ws\ProjetoTs\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\_ws\ProjetoTs\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\_ws\ProjetoTs\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\_ws\ProjetosTS\obj\Debug\net8.0\ProjetoTs.csproj.Up2Date
+C:\_ws\ProjetosTS\obj\Debug\net8.0\ProjetoTs.csproj.CopyComplete
